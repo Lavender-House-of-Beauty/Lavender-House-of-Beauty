@@ -1,0 +1,18 @@
+{
+  "name": "lavender-house-of-beauty",
+  "version": "1.0.x",
+  "type": "module",
+  "dependencies": {
+    "gulp-cli": "^2.3.0"
+  },
+  "devDependencies": {
+    "browser-sync": "^2.29.3",
+    "del": "7.0.0",
+    "gulp": "^4.0.2",
+    "gulp-file-include": "^2.3.0"
+  },
+  "packageManager": "pnpm@8.6.2",
+  "engines": {
+    "pnpm": "^8.6"
+  }
+}
