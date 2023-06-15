@@ -1,47 +1,112 @@
-import gulp from 'gulp';
 import browserSync from 'browser-sync';
 import {deleteAsync} from 'del';
-import fileInclude from 'gulp-file-include'
+import gulp from 'gulp';
+import autoprefixer from 'gulp-autoprefixer'
+import cleanCSS from 'gulp-clean-css';
+import gcmq from 'gulp-group-css-media-queries';
+import posthtml from 'gulp-posthtml'
+import removeHtmlComments from 'gulp-remove-html-comments'
+import gulpSass from 'gulp-sass';
+import ttf2woff from 'gulp-ttf2woff'
+import ttf2woff2 from 'gulp-ttf2woff2'
+import include from 'posthtml-include'
+import * as dartSass from 'sass'
 
+
+const sass = gulpSass(dartSass);
 
 const src = './src';
 const dist = './dist';
 
-// Clean destination directory
-export const clean = () => deleteAsync(dist);
-
 const path = {
     src: {
-        html: [`${src}/*.html`, `!${src}/_*.html`],
-        // css: source_folder + "/scss/style.scss",
-        // js: source_folder + "/js/script.js",
-        // img: source_folder + "/img/**/*.{jpg,png,svg,gif,ico,webp}",
-        // fonts: source_folder + "/fonts",
+        html: `${src}/index.html`,
+        css: `${src}/scss/style.scss`,
+        js: `${src}/js/script.js`,
+        fonts: `${src}/assets/fonts/**/*.ttf`,
+        icons: `${src}/assets/icons/**/*.{svg,ico}`,
+        images: `${src}/assets/images/**/*.{jpg,png,svg,gif,ico,webp}`,
     },
     dist: {
         html: `${dist}/`,
-        // css: project_folder + "/css/",
-        // js: project_folder + "/js/",
-        // img: project_folder + "/img/",
-        // fonts: project_folder + "/fonts/",
+        css: `${dist}/css/`,
+        js: `${dist}/js/`,
+        fonts: `${dist}/assets/fonts/`,
+        icons: `${dist}/assets/icons/`,
+        images: `${dist}/assets/images/`,
+    },
+    watch: {
+        html: `${src}/**/*.html`,
+        css: `${src}/scss/**/*.scss`,
+        js: `${src}/js/**/*.js`,
+        icons: `${src}/assets/icons/**/*.svg`,
+        images: `${src}/assets/images/**/*.{jpg,png,svg,gif,ico,webp}`,
     },
 }
 
-function server() {
+export const clean = () => deleteAsync(dist);
+
+export const server = () => {
     browserSync.init({
-        server: {
-            baseDir: dist,
-        },
+        server: {baseDir: dist},
         port: 3000,
         notify: false,
+        open: false,
     });
 }
 
 export const html = () => {
     return gulp.src(path.src.html)
-        .pipe(fileInclude())
+        .pipe(posthtml([include()]))
+        .pipe(removeHtmlComments())
         .pipe(gulp.dest(path.dist.html))
+        .pipe(browserSync.stream());
 }
 
+export const scss = () => {
+    return gulp.src(path.src.css, {'allowEmpty': true})
+        .pipe(sass({}, {}).on('error', sass.logError))
+        .pipe(gcmq())
+        .pipe(autoprefixer())
+        .pipe(cleanCSS({level: 2}))
+        .pipe(gulp.dest(path.dist.css))
+        .pipe(browserSync.stream());
+}
 
-export const build = gulp.parallel(clean, html, server)
+export const js = () => {
+    return gulp.src(path.src.js, {'allowEmpty': true})
+        .pipe(gulp.dest(path.dist.js))
+        .pipe(browserSync.stream());
+}
+
+export const fonts = () => {
+    gulp.src(path.src.fonts)
+        .pipe(ttf2woff())
+        .pipe(gulp.dest(path.dist.fonts))
+    return gulp.src(path.src.fonts)
+        .pipe(ttf2woff2())
+        .pipe(gulp.dest(path.dist.fonts))
+}
+
+export const icons = () => {
+    return gulp.src(path.src.icons, {'allowEmpty': true})
+        .pipe(gulp.dest(path.dist.icons))
+        .pipe(browserSync.stream());
+}
+
+export const images = () => {
+    return gulp.src(path.src.images, {'allowEmpty': true})
+        .pipe(gulp.dest(path.dist.images))
+        .pipe(browserSync.stream());
+}
+
+const watch = () => {
+    gulp.watch(path.watch.html, html);
+    gulp.watch(path.watch.css, scss);
+    gulp.watch(path.watch.js, js);
+    gulp.watch(path.watch.icons, icons);
+    gulp.watch(path.watch.images, images);
+}
+
+export const build = gulp.series(clean, gulp.parallel(html, scss, js, fonts, icons, images))
+export const dev = gulp.parallel(build, watch, server)
