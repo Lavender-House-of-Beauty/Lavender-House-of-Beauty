@@ -1,0 +1,20 @@
+.hero {
+  background-color: #f4efec;
+
+  &-text {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    &__main {
+      font-size: 3rem;
+      font-weight: 700;
+      line-height: 1;
+      max-width: 300px;
+
+      @include media-breakpoint-down(sm) {
+        font-size: 2.5rem;
+      }
+    }
+  }
+}

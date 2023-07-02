@@ -2,7 +2,12 @@ header {
   z-index: 7;
 
   nav {
-    background: #e6e6fa;
-    background: linear-gradient(0deg, #e6e6fa 0%, #c9a7eb 100%);
+    background-color: #f4efec;
+    --bs-nav-link-font-weight: 600;
   }
+
+  .navbar {
+    --bs-navbar-hover-color: #9384d1;
+  }
+
 }
