@@ -1,4 +1,6 @@
-@import "node_modules/bootstrap/scss/bootstrap.scss";
+@import "node_modules/bootstrap/scss/functions";
+@import "node_modules/bootstrap/scss/variables";
+@import "node_modules/bootstrap/scss/mixins";
 
 * {
   font-family: Diphylleia, serif;
@@ -11,3 +13,4 @@ body {
 @import 'fonts.scss';
 @import 'header';
 @import 'hero';
+@import 'services';
