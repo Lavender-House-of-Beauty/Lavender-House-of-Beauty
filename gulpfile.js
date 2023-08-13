@@ -45,8 +45,14 @@ const path = {
 };
 
 const external_files = {
-  css: ['node_modules/bootstrap/dist/css/bootstrap.min.css'],
-  js: ['node_modules/bootstrap/dist/js/bootstrap.min.js'],
+  css: [
+    'node_modules/bootstrap/dist/css/bootstrap.min.css',
+    'node_modules/swiper/swiper-bundle.min.css',
+  ],
+  js: [
+    'node_modules/bootstrap/dist/js/bootstrap.min.js',
+    'node_modules/swiper/swiper-bundle.min.js',
+  ],
 };
 
 export const clean = () => deleteAsync(dist);

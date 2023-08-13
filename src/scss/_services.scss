@@ -1,8 +1,8 @@
 .services {
-  padding-block: 80px;
+  padding-block: 50px;
 
   &-wrap {
-    row-gap: 30px;
+    padding-block: 30px;
   }
 
   .service-item {
@@ -14,19 +14,16 @@
       text-align: center;
       gap: 25px;
       padding-inline: 1rem;
-
-      &:hover {
-        .service-item-icon {
-          filter: drop-shadow(2px 4px 6px #9384d1);
-          scale: 1.2;
-        }
-      }
     }
 
     &-icon {
       width: 100px;
       height: 100px;
       transition: all .3s ease;
+    }
+
+    &-text {
+      max-width: 350px;
     }
 
     &-link {
@@ -44,10 +41,6 @@
         color: hsl(0, 0%, 100%);
         background-color: #9384d1;
         box-shadow: #9384d1 0 7px 29px 0;
-
-        .service-item-icon {
-          filter: drop-shadow(2px 4px 6px #9384d1);
-        }
       }
 
       &:active {
@@ -57,6 +50,15 @@
         background-color: #9384d1;
         box-shadow: #9384d1 0 0 0 0;
       }
+    }
+  }
+
+  .swiper-pagination {
+    position: relative;
+    padding-top: 20px;
+
+    &-bullet-active {
+      background-color: #9384d1;
     }
   }
 }
