@@ -4,10 +4,10 @@ import gulp from 'gulp';
 import autoprefixer from 'gulp-autoprefixer';
 import cleanCSS from 'gulp-clean-css';
 import gcmq from 'gulp-group-css-media-queries';
+import minify from 'gulp-minify';
 import posthtml from 'gulp-posthtml';
-import removeHtmlComments from 'gulp-remove-html-comments';
 import gulpSass from 'gulp-sass';
-import ttf2woff from 'gulp-ttf2woff';
+import strip from 'gulp-strip-comments';
 import ttf2woff2 from 'gulp-ttf2woff2';
 import webp from 'gulp-webp';
 import include from 'posthtml-include';
@@ -70,7 +70,7 @@ export const html = () => {
   return gulp
     .src(path.src.html)
     .pipe(posthtml([include()]))
-    .pipe(removeHtmlComments())
+    .pipe(strip())
     .pipe(gulp.dest(path.dist.html))
     .pipe(browserSync.stream());
 };
@@ -88,7 +88,15 @@ export const scss = () => {
 
 export const js = () => {
   return gulp
-    .src([path.src.js])
+    .src(path.src.js)
+    .pipe(
+      minify({
+        noSource: true,
+        ext: {
+          min: '.min.js',
+        },
+      }),
+    )
     .pipe(gulp.dest(path.dist.js))
     .pipe(browserSync.stream());
 };
@@ -99,7 +107,6 @@ export const external = () => {
 };
 
 export const fonts = () => {
-  gulp.src(path.src.fonts).pipe(ttf2woff()).pipe(gulp.dest(path.dist.fonts));
   return gulp
     .src(path.src.fonts)
     .pipe(ttf2woff2())

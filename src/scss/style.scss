@@ -6,6 +6,10 @@
   font-family: Diphylleia, serif;
 }
 
+html {
+  scroll-padding-top: 90px;
+}
+
 body {
   background-color: lavender;
 }
@@ -14,3 +18,5 @@ body {
 @import 'header';
 @import 'hero';
 @import 'services';
+@import 'about';
+@import 'prices';

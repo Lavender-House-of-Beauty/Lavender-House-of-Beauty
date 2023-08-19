@@ -1,5 +1,9 @@
 header {
-  z-index: 7;
+  transition: all 0.3s ease-in-out;
+
+  &.scrolling {
+    box-shadow: 0 3px 15px 0 #9384d17f;
+  }
 
   nav {
     background-color: #f4efec;
@@ -9,5 +13,4 @@ header {
   .navbar {
     --bs-navbar-hover-color: #9384d1;
   }
-
 }

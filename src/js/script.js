@@ -1,3 +1,12 @@
+window.onscroll = function () {
+  let header = document.querySelector('header');
+  if (window.scrollY > 0) {
+    header.classList.add('scrolling');
+  } else {
+    header.classList.remove('scrolling');
+  }
+};
+
 let swiper = new Swiper('.services-swiper', {
   slidesPerView: 1,
   spaceBetween: 0,
