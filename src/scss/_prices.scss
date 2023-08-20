@@ -1,4 +1,49 @@
 .prices {
-  // background-image: url(./assets/images/prices-background.webp);
-}
+  position: relative;
+  padding-block: 50px;
 
+  .bg-img {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-image: url(./../assets/images/prices-background.webp);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    filter: blur(3px);
+  }
+
+  .container {
+    position: relative;
+  }
+
+  table {
+    border-spacing: 0 5px;
+    border-collapse: inherit;
+
+    caption {
+      font-size: 1.5rem;
+      font-weight: bold;
+      text-align: center;
+      color: white;
+      border-radius: 10px;
+      background-color: #9384d1;
+    }
+
+    td:first-child {
+      padding-left: 5%;
+      border-top-left-radius: 10px;
+      border-bottom-left-radius: 10px;
+    }
+
+    td:last-child {
+      font-weight: bold;
+      padding-right: 5%;
+      text-align: end;
+      border-top-right-radius: 10px;
+      border-bottom-right-radius: 10px;
+    }
+  }
+}

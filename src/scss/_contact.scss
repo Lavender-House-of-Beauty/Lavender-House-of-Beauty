@@ -1,0 +1,68 @@
+.contact {
+  &-image {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    img {
+      max-height: 700px;
+    }
+
+    @include media-breakpoint-down(md) {
+      display: none;
+    }
+  }
+
+  &-info {
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding-top: 50px;
+    gap: 5px;
+
+    &__title {
+      font-size: 1.7rem;
+      font-weight: bold;
+      text-align: center;
+    }
+
+    &__link {
+      font-size: 1.3rem;
+      text-decoration: none;
+      color: black;
+
+      &:hover {
+        font-weight: bold;
+        color: #9384d1;
+      }
+    }
+
+    &-social {
+      display: flex;
+      padding: 15px 0;
+      gap: 20px;
+
+      &__link {
+        text-decoration: none;
+
+        svg {
+          width: 30px;
+          height: 30px;
+          fill: black;
+        }
+
+        &:hover svg {
+          fill: #9384d1;
+        }
+      }
+    }
+
+    iframe {
+      border-radius: 10px;
+    }
+
+    @include media-breakpoint-down(md) {
+      width: 100%;
+    }
+  }
+}
