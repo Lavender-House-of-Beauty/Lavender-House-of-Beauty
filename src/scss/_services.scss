@@ -34,8 +34,8 @@
       color: #9384d1;
       border: 0;
       border-radius: 50px;
-      background-color: white;
-      box-shadow: rgb(0 0 0 / 5%) 0 0 8px;
+      background-color: #fff;
+      box-shadow: #0000000c 0 0 8px;
 
       &:hover {
         color: hsl(0, 0%, 100%);
@@ -46,7 +46,7 @@
       &:active {
         transition: 100ms;
         transform: translateY(10px);
-        color: hsl(0, 0%, 100%);
+        color: #fff;
         background-color: #9384d1;
         box-shadow: #9384d1 0 0 0 0;
       }
