@@ -8,7 +8,7 @@
   "devDependencies": {
     "bootstrap": "^5.3.1",
     "browser-sync": "^2.29.3",
-    "del": "7.0.0",
+    "del": "7.1.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^8.0.0",
     "gulp-clean-css": "^4.3.0",
@@ -20,7 +20,7 @@
     "gulp-ttf2woff2": "^4.0.1",
     "gulp-webp": "^4.0.1",
     "posthtml-include": "^1.7.4",
-    "prettier": "^3.0.2",
+    "prettier": "^3.0.3",
     "sass": "^1.66.1",
     "swiper": "^10.2.0"
   },
