@@ -1,6 +1,6 @@
-@import "node_modules/bootstrap/scss/functions";
-@import "node_modules/bootstrap/scss/variables";
-@import "node_modules/bootstrap/scss/mixins";
+@import 'node_modules/bootstrap/scss/functions';
+@import 'node_modules/bootstrap/scss/variables';
+@import 'node_modules/bootstrap/scss/mixins';
 
 * {
   font-family: Diphylleia, serif;
@@ -11,10 +11,11 @@ html {
 }
 
 body {
-  background-color: lavender;
+  background-color: var(--theme-bg);
 }
 
-@import 'fonts.scss';
+@import 'variavles';
+@import 'fonts';
 @import 'header';
 @import 'hero';
 @import 'services';

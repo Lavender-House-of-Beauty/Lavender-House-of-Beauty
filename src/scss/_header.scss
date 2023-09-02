@@ -2,15 +2,15 @@ header {
   transition: all 0.3s ease-in-out;
 
   &.scrolling {
-    box-shadow: 0 3px 15px 0 #9384d17f;
-  }
-
-  nav {
-    background-color: #f4efec;
-    --bs-nav-link-font-weight: 600;
+    box-shadow: 0 3px 15px 0 var(--theme-purple-soft);
   }
 
   .navbar {
-    --bs-navbar-hover-color: #9384d1;
+    background-color: #f4efec;
+    --bs-navbar-hover-color: var(--theme-purple-soft);
+
+    &-nav {
+      --bs-nav-link-font-weight: 600;
+    }
   }
 }

@@ -22,7 +22,7 @@ const path = {
   src: {
     html: `${src}/index.html`,
     css: `${src}/scss/style.scss`,
-    js: `${src}/js/script.js`,
+    js: `${src}/js/*.js`,
     fonts: `${src}/assets/fonts/**/*.ttf`,
     icons: `${src}/assets/icons/**/*.{svg,png,ico}`,
     images: `${src}/assets/images/**/*.{png,jpg,jpeg}`,

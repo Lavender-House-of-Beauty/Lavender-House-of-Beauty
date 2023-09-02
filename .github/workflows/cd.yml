@@ -25,7 +25,7 @@ jobs:
     permissions: write-all
 
     steps:
-      - name: 🗑 Delete deployment
+      - name: 🗑 Delete deployments
         uses: strumwolf/delete-deployment-environment@v2
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
@@ -38,6 +38,19 @@ jobs:
           token: ${{ secrets.GITHUB_TOKEN }}
           save_period: 0
           save_min_runs_number: 0
+
+  prettier:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: 🛎️ Checkout
+        uses: actions/checkout@v3
+
+      - name: 🪄 Prettify code
+        uses: creyD/prettier_action@v4.3
+        with:
+          dry: true
+          prettier_options: '-c ./ !pnpm-lock.yaml'
 
   build:
     runs-on: ubuntu-latest

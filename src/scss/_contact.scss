@@ -29,11 +29,11 @@
     &__link {
       font-size: 1.3rem;
       text-decoration: none;
-      color: black;
+      color: var(--theme-black);
 
       &:hover {
         font-weight: bold;
-        color: #9384d1;
+        color: var(--theme-purple-soft);
       }
     }
 
@@ -48,11 +48,11 @@
         svg {
           width: 30px;
           height: 30px;
-          fill: black;
+          fill: var(--theme-black);
         }
 
         &:hover svg {
-          fill: #9384d1;
+          fill: var(--theme-purple-soft);
         }
       }
     }
