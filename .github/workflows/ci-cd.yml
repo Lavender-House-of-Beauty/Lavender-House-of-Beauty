@@ -1,4 +1,4 @@
-name: CD
+name: CI/CD
 
 on:
   push:
@@ -11,8 +11,8 @@ on:
 
 # Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
-  contents: read
   pages: write
+  contents: read
   id-token: write
 
 concurrency:
@@ -75,13 +75,6 @@ jobs:
         with:
           cache: pnpm
           node-version: ${{ matrix.node }}
-
-      - name: 💾 Cache pnpm
-        uses: actions/cache@v3
-        with:
-          key: node${{ matrix.node }}-pnpm-${{ hashFiles('pnpm-lock.yaml') }}
-          path: ~/.pnpm-store
-          restore-keys: node${{ matrix.node }}-pnpm-
 
       - name: 📥 Install dependencies
         run: pnpm i --frozen-lockfile
