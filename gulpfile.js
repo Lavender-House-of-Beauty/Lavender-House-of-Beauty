@@ -6,10 +6,12 @@ import cleanCSS from 'gulp-clean-css';
 import gcmq from 'gulp-group-css-media-queries';
 import minify from 'gulp-minify';
 import posthtml from 'gulp-posthtml';
+import replace from 'gulp-replace';
 import gulpSass from 'gulp-sass';
 import strip from 'gulp-strip-comments';
 import ttf2woff2 from 'gulp-ttf2woff2';
 import webp from 'gulp-webp';
+import path from 'path';
 import include from 'posthtml-include';
 import * as dartSass from 'sass';
 
@@ -18,7 +20,7 @@ const sass = gulpSass(dartSass);
 const src = './src';
 const dist = './dist';
 
-const path = {
+const paths = {
   src: {
     html: `${src}/index.html`,
     css: `${src}/scss/style.scss`,
@@ -26,6 +28,7 @@ const path = {
     fonts: `${src}/assets/fonts/**/*.ttf`,
     icons: `${src}/assets/icons/**/*.{svg,png,ico}`,
     images: `${src}/assets/images/**/*.{png,jpg,jpeg}`,
+    assets: `${src}/assets`,
   },
   dist: {
     html: `${dist}/`,
@@ -68,27 +71,35 @@ export const server = () => {
 
 export const html = () => {
   return gulp
-    .src(path.src.html)
+    .src(paths.src.html)
     .pipe(posthtml([include()]))
     .pipe(strip())
-    .pipe(gulp.dest(path.dist.html))
+    .pipe(gulp.dest(paths.dist.html))
     .pipe(browserSync.stream());
 };
 
 export const scss = () => {
   return gulp
-    .src(path.src.css, { allowEmpty: true })
+    .src(paths.src.css, { allowEmpty: true })
     .pipe(sass({}, {}).on('error', sass.logError))
+    .pipe(
+      replace(/url\(~(.*?)\)/g, function (match, link) {
+        const levels = path
+          .relative(this.file.path, paths.src.assets)
+          .replace('.', '');
+        return `url(${levels}/${link})`;
+      }),
+    )
     .pipe(gcmq())
     .pipe(autoprefixer())
     .pipe(cleanCSS({ level: 2 }))
-    .pipe(gulp.dest(path.dist.css))
+    .pipe(gulp.dest(paths.dist.css))
     .pipe(browserSync.stream());
 };
 
 export const js = () => {
   return gulp
-    .src(path.src.js)
+    .src(paths.src.js)
     .pipe(
       minify({
         noSource: true,
@@ -97,43 +108,43 @@ export const js = () => {
         },
       }),
     )
-    .pipe(gulp.dest(path.dist.js))
+    .pipe(gulp.dest(paths.dist.js))
     .pipe(browserSync.stream());
 };
 
 export const external = () => {
-  gulp.src(external_files.css).pipe(gulp.dest(path.dist.css));
-  return gulp.src(external_files.js).pipe(gulp.dest(path.dist.js));
+  gulp.src(external_files.css).pipe(gulp.dest(paths.dist.css));
+  return gulp.src(external_files.js).pipe(gulp.dest(paths.dist.js));
 };
 
 export const fonts = () => {
   return gulp
-    .src(path.src.fonts)
+    .src(paths.src.fonts)
     .pipe(ttf2woff2())
-    .pipe(gulp.dest(path.dist.fonts));
+    .pipe(gulp.dest(paths.dist.fonts));
 };
 
 export const icons = () => {
   return gulp
-    .src(path.src.icons, { allowEmpty: true })
-    .pipe(gulp.dest(path.dist.icons))
+    .src(paths.src.icons, { allowEmpty: true })
+    .pipe(gulp.dest(paths.dist.icons))
     .pipe(browserSync.stream());
 };
 
 export const images = () => {
   return gulp
-    .src(path.src.images, { allowEmpty: true })
+    .src(paths.src.images, { allowEmpty: true })
     .pipe(webp())
-    .pipe(gulp.dest(path.dist.images))
+    .pipe(gulp.dest(paths.dist.images))
     .pipe(browserSync.stream());
 };
 
 const watch = () => {
-  gulp.watch(path.watch.html, html);
-  gulp.watch(path.watch.css, scss);
-  gulp.watch(path.watch.js, js);
-  gulp.watch(path.watch.icons, icons);
-  gulp.watch(path.watch.images, images);
+  gulp.watch(paths.watch.html, html);
+  gulp.watch(paths.watch.css, scss);
+  gulp.watch(paths.watch.js, js);
+  gulp.watch(paths.watch.icons, icons);
+  gulp.watch(paths.watch.images, images);
 };
 
 export const build = gulp.series(

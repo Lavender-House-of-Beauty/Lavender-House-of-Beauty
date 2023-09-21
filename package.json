@@ -2,11 +2,15 @@
   "name": "lavender-house-of-beauty",
   "version": "1.0.x",
   "type": "module",
+  "scripts": {
+    "prt:check": "prettier -c ./ '!pnpm-lock.yaml'",
+    "prt:fix": "prettier -w ./ '!pnpm-lock.yaml'"
+  },
   "dependencies": {
     "gulp-cli": "^2.3.0"
   },
   "devDependencies": {
-    "bootstrap": "^5.3.1",
+    "bootstrap": "^5.3.2",
     "browser-sync": "^2.29.3",
     "del": "7.1.0",
     "gulp": "^4.0.2",
@@ -15,14 +19,15 @@
     "gulp-group-css-media-queries": "^1.2.2",
     "gulp-minify": "^3.1.0",
     "gulp-posthtml": "^3.0.5",
+    "gulp-replace": "^1.1.4",
     "gulp-sass": "^5.1.0",
     "gulp-strip-comments": "^2.6.0",
     "gulp-ttf2woff2": "^4.0.1",
     "gulp-webp": "^4.0.1",
     "posthtml-include": "^1.7.4",
     "prettier": "^3.0.3",
-    "sass": "^1.66.1",
-    "swiper": "^10.2.0"
+    "sass": "^1.68.0",
+    "swiper": "^10.3.0"
   },
   "engines": {
     "node": ">=18",
