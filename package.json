@@ -27,7 +27,7 @@
     "posthtml-include": "^1.7.4",
     "prettier": "^3.0.3",
     "sass": "^1.68.0",
-    "swiper": "^10.3.0"
+    "swiper": "^10.3.1"
   },
   "engines": {
     "node": ">=18",
