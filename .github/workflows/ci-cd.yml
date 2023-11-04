@@ -21,6 +21,7 @@ concurrency:
 
 jobs:
   cleanup:
+    name: 🧹 Clean up GitHub repository
     runs-on: ubuntu-latest
     permissions: write-all
 
@@ -40,6 +41,7 @@ jobs:
           save_min_runs_number: 0
 
   prettier:
+    name: 🪄 Lint
     runs-on: ubuntu-latest
 
     steps:
@@ -53,34 +55,38 @@ jobs:
           prettier_options: '-c ./ !pnpm-lock.yaml'
 
   build:
+    name: 🏗️ Build (node - ${{ matrix.node }})
     runs-on: ubuntu-latest
 
     strategy:
       matrix:
-        node: [18.x, 20.x]
-
-    name: build (node - ${{ matrix.node }})
+        node: [18.x, 20.x, 21.x]
 
     steps:
-      - name: 🛎️ Checkout
+      - name: 🛎 Checkout
         uses: actions/checkout@v4
 
-      - name: ⚙️ Setup pnpm
+      - name: 🟠 Setup pnpm
         uses: pnpm/action-setup@v2
         with:
           version: latest
 
-      - name: ⚙️ Setup Node.js ${{ matrix.node }}
+      - name: 🟢 Setup Node.js ${{ matrix.node }}
         uses: actions/setup-node@v4
         with:
           cache: pnpm
           node-version: ${{ matrix.node }}
 
+      - name: 📃 Setup Pages
+        uses: actions/configure-pages@v3
+
       - name: 📦 Install dependencies
-        run: pnpm i --frozen-lockfile
+        env:
+          PNPM_FLAGS: --frozen-lockfile --color=always
+        run: pnpm i ${{ env.PNPM_FLAGS }}
 
       - name: 🏗 Build Site
-        run: gulp build
+        run: pnpm build
 
       - name: 📤 Upload artifact
         uses: actions/upload-pages-artifact@v2
@@ -88,11 +94,14 @@ jobs:
           path: ./dist
 
   deploy:
-    runs-on: ubuntu-latest
+    name: 🌐 Deploy
     needs: build
+    runs-on: ubuntu-latest
+
     environment:
       name: github-pages
       url: ${{ steps.deployment.outputs.page_url }}
+
     steps:
       - name: 🚀 Deploy to GitHub Pages
         id: deployment

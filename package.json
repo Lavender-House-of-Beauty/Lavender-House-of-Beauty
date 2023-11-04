@@ -3,6 +3,7 @@
   "version": "1.0.x",
   "type": "module",
   "scripts": {
+    "build": "gulp build --color",
     "prt:check": "prettier -c ./ '!pnpm-lock.yaml'",
     "prt:fix": "prettier -w ./ '!pnpm-lock.yaml'"
   },
@@ -30,8 +31,8 @@
     "swiper": "^11.0.3"
   },
   "engines": {
-    "node": ">=18",
-    "pnpm": ">=8"
+    "pnpm": ">=8",
+    "node": ">=18"
   },
   "prettier": {
     "singleQuote": true,
