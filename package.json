@@ -3,6 +3,7 @@
   "version": "1.0.x",
   "type": "module",
   "scripts": {
+    "build": "gulp build --color",
     "prt:check": "prettier -c ./ '!pnpm-lock.yaml'",
     "prt:fix": "prettier -w ./ '!pnpm-lock.yaml'"
   },
@@ -14,7 +15,7 @@
     "browser-sync": "^2.29.3",
     "del": "7.1.0",
     "gulp": "^4.0.2",
-    "gulp-autoprefixer": "^8.0.0",
+    "gulp-autoprefixer": "^9.0.0",
     "gulp-clean-css": "^4.3.0",
     "gulp-group-css-media-queries": "^1.2.2",
     "gulp-minify": "^3.1.0",
@@ -23,15 +24,15 @@
     "gulp-sass": "^5.1.0",
     "gulp-strip-comments": "^2.6.0",
     "gulp-ttf2woff2": "^4.0.1",
-    "gulp-webp": "^4.0.1",
+    "gulp-webp": "^5.0.0",
     "posthtml-include": "^1.7.4",
     "prettier": "^3.0.3",
     "sass": "^1.69.5",
     "swiper": "^11.0.3"
   },
   "engines": {
-    "node": ">=18",
-    "pnpm": ">=8"
+    "pnpm": ">=8",
+    "node": ">=18"
   },
   "prettier": {
     "singleQuote": true,
