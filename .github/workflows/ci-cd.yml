@@ -56,6 +56,7 @@ jobs:
 
   build:
     name: 🏗️ Build (node - ${{ matrix.node }})
+    needs: cleanup
     runs-on: ubuntu-latest
 
     strategy:
@@ -78,7 +79,7 @@ jobs:
           node-version: ${{ matrix.node }}
 
       - name: ⚙️ Setup Pages
-        uses: actions/configure-pages@v3
+        uses: actions/configure-pages@v4
 
       - name: 📦 Install dependencies
         env:
@@ -89,9 +90,10 @@ jobs:
         run: pnpm build
 
       - name: 📤 Upload artifact
-        uses: actions/upload-pages-artifact@v2
+        uses: actions/upload-pages-artifact@v3
         with:
           path: ./dist
+          name: gh-pages-dist-${{ matrix.node }}
 
   deploy:
     name: 🌐 Deploy
@@ -105,4 +107,6 @@ jobs:
     steps:
       - name: 🚀 Deploy to GitHub Pages
         id: deployment
-        uses: actions/deploy-pages@v2
+        uses: actions/deploy-pages@v4
+        with:
+          artifact_name: gh-pages-dist-20.x
