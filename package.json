@@ -12,7 +12,7 @@
   },
   "devDependencies": {
     "bootstrap": "^5.3.2",
-    "browser-sync": "^2.29.3",
+    "browser-sync": "^3.0.2",
     "del": "7.1.0",
     "gulp": "^4.0.2",
     "gulp-autoprefixer": "^9.0.0",
@@ -26,8 +26,8 @@
     "gulp-ttf2woff2": "^4.0.1",
     "gulp-webp": "^5.0.0",
     "posthtml-include": "^1.7.4",
-    "prettier": "^3.1.0",
-    "sass": "^1.69.5",
+    "prettier": "^3.1.1",
+    "sass": "^1.69.6",
     "swiper": "^11.0.5"
   },
   "engines": {
