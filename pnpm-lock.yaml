@@ -11,8 +11,8 @@ dependencies:
 
 devDependencies:
   bootstrap:
-    specifier: ^5.3.2
-    version: 5.3.2(@popperjs/core@2.11.8)
+    specifier: ^5.3.3
+    version: 5.3.3(@popperjs/core@2.11.8)
   browser-sync:
     specifier: ^3.0.2
     version: 3.0.2
@@ -53,17 +53,17 @@ devDependencies:
     specifier: ^5.0.0
     version: 5.0.0(gulp@4.0.2)
   posthtml-include:
-    specifier: ^1.7.4
-    version: 1.7.4
+    specifier: ^2.0.1
+    version: 2.0.1
   prettier:
-    specifier: ^3.2.4
-    version: 3.2.4
+    specifier: ^3.2.5
+    version: 3.2.5
   sass:
-    specifier: ^1.70.0
-    version: 1.70.0
+    specifier: ^1.71.1
+    version: 1.71.1
   swiper:
-    specifier: ^11.0.5
-    version: 11.0.5
+    specifier: ^11.0.7
+    version: 11.0.7
 
 packages:
 
@@ -574,8 +574,8 @@ packages:
       safe-buffer: 5.2.1
     dev: true
 
-  /bootstrap@5.3.2(@popperjs/core@2.11.8):
-    resolution: {integrity: sha512-D32nmNWiQHo94BKHLmOrdjlL05q1c8oxbtBphQFb9Z5to6eGRDCm0QgeaZ4zFBHzfg2++rqa2JkqCcxDy0sH0g==}
+  /bootstrap@5.3.3(@popperjs/core@2.11.8):
+    resolution: {integrity: sha512-8HLCdWgyoMguSO9o+aH+iuZ+aht+mzW0u3HIMzVu7Srrpv7EBBxTnrFlSCskwdY1+EOFQSm7uMJhNQHkdPcmjg==}
     peerDependencies:
       '@popperjs/core': ^2.11.8
     dependencies:
@@ -858,6 +858,21 @@ packages:
 
   /chokidar@3.5.3:
     resolution: {integrity: sha512-Dr3sfKRP6oTcjf2JmUmFJfeVMvXBdegxB0iVQ5eb2V10uFJUCAS8OByZdVAyVb8xXNz3GjjTgj9kLWsZTqE6kw==}
+    engines: {node: '>= 8.10.0'}
+    dependencies:
+      anymatch: 3.1.3
+      braces: 3.0.2
+      glob-parent: 5.1.2
+      is-binary-path: 2.1.0
+      is-glob: 4.0.3
+      normalize-path: 3.0.0
+      readdirp: 3.6.0
+    optionalDependencies:
+      fsevents: 2.3.3
+    dev: true
+
+  /chokidar@3.6.0:
+    resolution: {integrity: sha512-7VT13fmjotKpGipCW9JEQAusEPE+Ei8nl6/g4FBAmIm0GOOLMua9NDDo/DWp0ZAxCr3cPq5ZpBqmPAQgDda2Pw==}
     engines: {node: '>= 8.10.0'}
     dependencies:
       anymatch: 3.1.3
@@ -3810,13 +3825,13 @@ packages:
     dependencies:
       fclone: 1.0.11
       posthtml: 0.16.6
-      posthtml-match-helper: 1.0.3(posthtml@0.16.6)
+      posthtml-match-helper: 1.0.4(posthtml@0.16.6)
       posthtml-parser: 0.10.2
       posthtml-render: 3.0.0
     dev: true
 
-  /posthtml-include@1.7.4:
-    resolution: {integrity: sha512-GO5QzHiM6/fXq8DxLoLN+jEW4sH/6nuGF9z+NJmP1qi1A3J2zCC7WwXrEwaPL3T8LrH+FL4IedK+mIJHbn5ZEA==}
+  /posthtml-include@2.0.1:
+    resolution: {integrity: sha512-1YXy4QWeJldosTKLPz6ecbI4e26jHmo3R97NNTKMQqITvZOY025+yvX/RUgvcD1VghLeACs0Y2P3GjtJo5s27Q==}
     engines: {node: '>=12'}
     dependencies:
       posthtml: 0.16.6
@@ -3839,8 +3854,8 @@ packages:
       cosmiconfig: 2.2.2
     dev: true
 
-  /posthtml-match-helper@1.0.3(posthtml@0.16.6):
-    resolution: {integrity: sha512-aeRAPvok2Fs6uzSm85665jdAk5UOd8US2QCkWtGU6yLPlKSwzWTSgZZuABc3UeNy3K1lVk/HV9bRkWJYN05Ymw==}
+  /posthtml-match-helper@1.0.4(posthtml@0.16.6):
+    resolution: {integrity: sha512-Tj9orTIBxHdnraCxoEGjoizsFsTGvukzwcuhOjYQGmDG6gTlaRbMrGgi1J+FwKTN8hsCQENHYY0Deqs9a89BVg==}
     peerDependencies:
       posthtml: '>=0.5.0'
     dependencies:
@@ -3905,8 +3920,8 @@ packages:
     engines: {node: '>=4'}
     dev: true
 
-  /prettier@3.2.4:
-    resolution: {integrity: sha512-FWu1oLHKCrtpO1ypU6J0SbK2d9Ckwysq6bHj/uaCP26DxrPpppCLQRGVuqAxSTvhF00AcvDRyYrLNW7ocBhFFQ==}
+  /prettier@3.2.5:
+    resolution: {integrity: sha512-3/GWa9aOC0YeD7LUfvOG2NiDyhOWRvt1k+rcKhOuYnMY24iiCphgneUfJDyFXd6rZCAnuLBv6UeAULtrhT/F4A==}
     engines: {node: '>=14'}
     hasBin: true
     dev: true
@@ -4225,12 +4240,12 @@ packages:
     resolution: {integrity: sha512-YZo3K82SD7Riyi0E1EQPojLz7kpepnSQI9IyPbHHg1XXXevb5dJI7tpyN2ADxGcQbHG7vcyRHk0cbwqcQriUtg==}
     dev: true
 
-  /sass@1.70.0:
-    resolution: {integrity: sha512-uUxNQ3zAHeAx5nRFskBnrWzDUJrrvpCPD5FNAoRvTi0WwremlheES3tg+56PaVtCs5QDRX5CBLxxKMDJMEa1WQ==}
+  /sass@1.71.1:
+    resolution: {integrity: sha512-wovtnV2PxzteLlfNzbgm1tFXPLoZILYAMJtvoXXkD7/+1uP41eKkIt1ypWq5/q2uT94qHjXehEYfmjKOvjL9sg==}
     engines: {node: '>=14.0.0'}
     hasBin: true
     dependencies:
-      chokidar: 3.5.3
+      chokidar: 3.6.0
       immutable: 4.3.5
       source-map-js: 1.0.2
     dev: true
@@ -4701,8 +4716,8 @@ packages:
       es6-iterator: 2.0.3
       es6-symbol: 3.1.3
 
-  /swiper@11.0.5:
-    resolution: {integrity: sha512-rhCwupqSyRnWrtNzWzemnBLMoyYuoDgGgspAm/8iBD3jCvAWycPLH4Z3TB0O5520DHLzMx94yUMH/B9Efpa48w==}
+  /swiper@11.0.7:
+    resolution: {integrity: sha512-cDfglW1B6uSmB6eB6pNmzDTNLmZtu5bWWa1vak0RU7fOI9qHjMzl7gVBvYSl34b0RU2N11HxxETJqQ5LeqI1cA==}
     engines: {node: '>= 4.7.0'}
     dev: true
 
