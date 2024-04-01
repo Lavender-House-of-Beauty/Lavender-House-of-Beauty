@@ -8,13 +8,13 @@
     "prt:fix": "prettier -w ./ '!pnpm-lock.yaml'"
   },
   "dependencies": {
-    "gulp-cli": "^2.3.0"
+    "gulp-cli": "^3.0.0"
   },
   "devDependencies": {
     "bootstrap": "^5.3.3",
     "browser-sync": "^3.0.2",
     "del": "7.1.0",
-    "gulp": "^4.0.2",
+    "gulp": "^5.0.0",
     "gulp-autoprefixer": "^9.0.0",
     "gulp-clean-css": "^4.3.0",
     "gulp-group-css-media-queries": "^1.2.2",
@@ -27,8 +27,8 @@
     "gulp-webp": "^5.0.0",
     "posthtml-include": "^2.0.1",
     "prettier": "^3.2.5",
-    "sass": "^1.71.1",
-    "swiper": "^11.0.7"
+    "sass": "^1.72.0",
+    "swiper": "^11.1.0"
   },
   "engines": {
     "pnpm": ">=8",
