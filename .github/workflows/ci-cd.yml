@@ -79,7 +79,7 @@ jobs:
           node-version: ${{ matrix.node }}
 
       - name: ⚙️ Setup Pages
-        uses: actions/configure-pages@v4
+        uses: actions/configure-pages@v5
 
       - name: 📦 Install dependencies
         env:
