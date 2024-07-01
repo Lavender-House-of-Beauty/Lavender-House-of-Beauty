@@ -26,9 +26,9 @@
     "gulp-ttf2woff2": "^4.0.1",
     "gulp-webp": "^5.0.0",
     "posthtml-include": "^2.0.1",
-    "prettier": "^3.2.5",
-    "sass": "^1.72.0",
-    "swiper": "^11.1.0"
+    "prettier": "^3.3.2",
+    "sass": "^1.77.6",
+    "swiper": "^11.1.4"
   },
   "engines": {
     "pnpm": ">=8",
