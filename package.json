@@ -12,7 +12,7 @@
   },
   "devDependencies": {
     "bootstrap": "^5.3.3",
-    "browser-sync": "^3.0.2",
+    "browser-sync": "^3.0.3",
     "del": "7.1.0",
     "gulp": "^5.0.0",
     "gulp-autoprefixer": "^9.0.0",
@@ -23,12 +23,12 @@
     "gulp-replace": "^1.1.4",
     "gulp-sass": "^5.1.0",
     "gulp-strip-comments": "^2.6.0",
-    "gulp-ttf2woff2": "^4.0.1",
+    "gulp-ttf2woff2": "^5.0.0",
     "gulp-webp": "^5.0.0",
     "posthtml-include": "^2.0.1",
-    "prettier": "^3.3.2",
-    "sass": "^1.77.6",
-    "swiper": "^11.1.4"
+    "prettier": "^3.3.3",
+    "sass": "^1.79.4",
+    "swiper": "^11.1.14"
   },
   "engines": {
     "pnpm": ">=8",
